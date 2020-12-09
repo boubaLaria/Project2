@@ -12,24 +12,28 @@
      <link rel="stylesheet" href="font.css"/>
 </head>
 <body>
-    <h1>les membres du groupe 2</h1>
-    <ul>
-        <ol>Diallo safourata</ol>
-        <ol>Idris Sacko</ol>
-    </ul>
-    <div class="projet2"></div>
-    <div class="sacko"></div>
-    <div class="barry">
-        <li>list</li>
-        <li>list</li>
-        <li>list</li>
-        <li>list</li>
-        <li>list</li>
-    </div>
-    <div class="sacko">je suis idris</div>
-    <div class="barry"></div>
-    <div class="moussa"></div>
-    <div class="michel mizi saoromy"></div>
+    
+    <h1>la liste des apprenant</h1>
+        {% for app in affichageA %}
+
+        <li>Identiant: {{app.id}}</li>
+        <li>Nom: {{app.nomApp}}</li>
+        <li>Prenom: {{app.prenomApp}}</li>
+        <li>Telephone: {{app.telApp}}</li>
+        <li>Email: {{app.EmailApp}}</li>
+        <li>Adresse: {{app.adresseApp}}</li><br>
+        
+
+        {% endfor %}
+
+    
+
+    
+
+    
+  
+
+
 
 </body>
 </html>
