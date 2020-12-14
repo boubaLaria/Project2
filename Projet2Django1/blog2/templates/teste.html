@@ -1,0 +1,75 @@
+<!Doctype>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Projet 2Djqngo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+     <link rel="stylesheet" href="font.css"/>
+</head>
+<body>
+    
+    
+
+     {%  block content %}
+     <h1>la liste des apprenant</h1>
+    <table>
+          <thead>
+              <tr>
+                  <td>Identiant</td>
+                  <td>   </td>
+                  <td>Nom</td>
+                  <td>   </td>
+                  <td>prenom</td>
+                  <td>   </td>
+                  <td>Télephone</td>
+                  <td>   </td>
+                  <td>Email</td>
+                  <td>   </td>
+                  <td>Adresse</td>
+                  <td>modification  </td>
+                  <td>Suppression  </td>
+              </tr>
+          </thead>
+         
+            <tbody>
+             {% for app in apprenantliste %}
+                <tr>
+                    <td>{{app.id}}</td>
+                    <td>    </td>
+                    <td>{{app.nomApp}}</td>
+                    <td>   </td>
+                    <td> {{app.prenomApp}}</td>
+                    <td>   </td>
+                    <td> {{app.telApp}}</td>
+                    <td>   </td>
+                    <td>{{app.EmailApp}}</td>
+                    <td>   </td>
+                    <td>{{app.adresseApp}}</td>
+                    <td> <a href="{% url 'apprenantmodif' app.id %}"><button type="submit" value="Submit">modification</button></a></td>
+                    <form action="{% url 'apprenantdelete' app.id %}" method="POST">
+                            {% csrf_token %}
+                    <td><button type="submit" value="Submit">Suppression</button>   </td>
+                   </form>
+                </tr>
+                {% endfor %}
+            </tbody>
+            
+        
+    </table>
+       
+     {% endblock content %}
+    
+
+
+    
+  
+
+
+
+</body>
+</html>

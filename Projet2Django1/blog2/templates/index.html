@@ -13,27 +13,23 @@
 </head>
 <body>
     
-    <h1>la liste des apprenant</h1>
-        {% for app in affichageA %}
-
-        <li>Identiant: {{app.id}}</li>
-        <li>Nom: {{app.nomApp}}</li>
-        <li>Prenom: {{app.prenomApp}}</li>
-        <li>Telephone: {{app.telApp}}</li>
-        <li>Email: {{app.EmailApp}}</li>
-        <li>Adresse: {{app.adresseApp}}</li><br>
-        
-
-        {% endfor %}
-
     
+     {% load crispy_forms_tags %}
 
-    
+     {% block content %}
+     <form action="" method="post" autocomplete="off">
+        {% csrf_token %}
 
-    
-  
+        {{form.nomApp|as_crispy_field}}
+        {{form.prenomApp|as_crispy_field}}
+        {{form.telApp|as_crispy_field}}
+        {{form.EmailApp|as_crispy_field}}
+        {{form.adresseApp|as_crispy_field}}
 
+       <button type="submit" value="Submit">Submit</button>
+    </form>
+     {% endblock content %}
 
-
+     
 </body>
 </html>
